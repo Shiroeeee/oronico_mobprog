@@ -1,0 +1,66 @@
+import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:material_ui/material_ui.dart';
+import '../constant.dart';
+import '../widget/custom_text.dart';
+import '../screens/newsfeed_screen.dart';
+import '../screens/notification_screen.dart';
+
+
+class HomeScreen extends StatefulWidget {
+  const HomeScreen({super.key});
+
+  @override
+  State<HomeScreen> createState() => _HomeScreenState();
+}
+
+class _HomeScreenState extends State<HomeScreen> {
+  int _selectedIndex = 0;
+  final PageController _pageController = PageController();
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        shadowColor: fbTextColorWhite,
+        elevation: 2,
+        title: CustomText(
+          text: 'Facebook',
+          fontSize: ScreenUtil().setSp(25),
+          color: fbPrimary,
+          fontFamily: 'Klavika',
+          fontWeight: FontWeight(700),
+        ),
+      ),
+      body: PageView(
+        controller: _pageController,
+        children: const <Widget>[NewsfeedScreen(), NotificationScreen()],
+        onPageChanged: (page) {
+          setState(() {
+            _selectedIndex = page;
+          });
+        },
+      ),
+      bottomNavigationBar: BottomNavigationBar(
+        showUnselectedLabels: false,
+        showSelectedLabels: false,
+        onTap: _onTappedBar,
+        items: const [
+          BottomNavigationBarItem(icon: Icon(Icons.home), label: 'Home'),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.notifications),
+            label: 'Notifications',
+          ),
+        ],
+        selectedItemColor: fbPrimary,
+        currentIndex: _selectedIndex,
+      ),
+    );
+  }
+
+  void _onTappedBar(int value) {
+    setState(() {
+      _selectedIndex = value;
+    });
+    _pageController.jumpToPage(value);
+  }
+}

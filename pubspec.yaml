@@ -1,0 +1,37 @@
+name: oronico_mobprog
+description: "A new Flutter project."
+publish_to: 'none'
+version: 0.1.0+1
+
+environment:
+  sdk: ^3.14.0
+
+dependencies:
+  flutter:
+    sdk: flutter
+  material_ui: ^1.1.0
+  flutter_screenutil: ^5.9.0
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  flutter_lints: ^6.0.0
+
+flutter:
+  uses-material-design: true
+
+  assets:
+    - assets/images/
+
+  fonts:
+    - family: Frutiger
+      fonts:
+        - asset: assets/fonts/Frutiger.ttf
+        - asset: assets/fonts/Frutiger_bold.ttf
+          weight: 700
+    - family: Klavika
+      fonts:
+        - asset: assets/fonts/klavika-regular-italic.ttf
+          style: italic
+        - asset: assets/fonts/klavika-bold.ttf
+          weight: 700
