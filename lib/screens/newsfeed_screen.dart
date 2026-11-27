@@ -23,7 +23,7 @@ class NewsfeedScreen extends StatelessWidget {
           date: 'December 1, 2023',
           numOfLikes: 3000,
           hasImage: true,
-          imageUrl: 'assets/images/kirito.png',
+          imageUrl: 'assets/images/aincrad.jpg',
           avatarUrl: 'assets/images/kirito.png',
         ),
         // Adding 8 more to satisfy the "10 posts" requirement
